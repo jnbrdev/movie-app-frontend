@@ -1,0 +1,139 @@
+
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  background-color: #ffffff;
+}
+
+footer {
+  margin-top: auto; /* This ensures footer stays at the bottom */
+}
+.footer {
+  background-color: #000000;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer a {
+  color: #f1f1f1;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.footer .footer-content p {
+  margin: 5px;
+}
+
+footer {
+  margin-top: auto; /* This ensures footer stays at the bottom */
+}
+
+.navbar{
+  background-color: black;
+}
+
+.nav-button {
+  background-color: #fffefe !important;
+  padding-left: 30px !important;
+  padding-right: 30px !important;
+  color: #000000 !important;
+  outline: none !important; /* Removes the outline */
+  border: none !important;   /* Optionally remove the border if needed */
+  border-radius: 25px !important;
+}
+
+.nav-button:focus {
+  outline: none !important;
+  background-color: #797979 !important;
+}
+.nav-button:hover {
+  outline: none !important;
+  background-color: #797979 !important;
+}
+
+
+
+
+
+.glass-form {
+  background: rgba(2, 2, 2, 0.863) !important; /* Semi-transparent white */
+  backdrop-filter: blur(50px) !important; /* Glass-like effect */
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: white !important;
+}
+
+.glass-form .form-control {
+  background-color: transparent !important;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: white !important;
+}
+
+.glass-form .form-control:focus {
+  background-color: black;
+  border-color: rgba(255, 255, 255, 0.8);
+  box-shadow: none;
+}
+
+.glass-form .form-label {
+  color: white !important;
+}
+
+.red-button {
+  background-color: red;
+  border: none;
+  color: white;
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+.red-button:hover {
+  background-color: darkred;
+  color: white;
+}
+
+
+.floating-label-input:focus {
+  background-color: transparent !important; /* Transparent background */
+  color: white !important; /* Text color white */
+  border-color: white !important; /* Optional: white border */
+}
+
+.floating-label-label {
+  background-color: transparent !important;
+  color: rgba(255, 255, 255, 0.7); /* Initial label color */
+}
+
+.floating-label-input:focus + .floating-label-label {
+  background-color: transparent !important;
+  color: white !important; /* Change label color when input is focused */
+}
+
+.floating-label {
+  background-color: transparent !important;
+  position: relative;
+}
+
+.floating-label input {
+  background-color: transparent !important;
+  color: white !important;
+}
+
+.floating-label label {
+  background-color: transparent !important;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+
+
