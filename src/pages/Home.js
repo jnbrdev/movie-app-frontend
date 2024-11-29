@@ -45,7 +45,7 @@ export default function Home() {
     <>
       <Container>
         {user.isAdmin ? (
-          <AdminHome />
+          <h1>Admin Dashboard</h1>
         ) : (
           <>
             <Container className="p-0">
@@ -137,15 +137,28 @@ export default function Home() {
         >
           {movie.description}
         </p>
-        <Link
-          className="btn btn-primary d-block"
-          to={`/movies/${movie._id}`}
-          style={{
-            marginTop: "auto", // Ensures the button stays at the bottom
-          }}
-        >
-          View
-        </Link>
+        {user.id ? (
+  <Link
+    className="btn btn-primary d-block"
+    to={`/movies/${movie._id}`}
+    style={{
+      marginTop: "auto", // Ensures the button stays at the bottom
+    }}
+  >
+    View
+  </Link>
+) : (
+  <Link
+    className="btn btn-primary d-block"
+    to="/login"
+    style={{
+      marginTop: "auto", // Ensures the button stays at the bottom
+    }}
+  >
+    View
+  </Link>
+)}
+
       </div>
     </Col>
   ))}

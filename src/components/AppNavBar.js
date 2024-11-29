@@ -22,12 +22,14 @@ export default function AppNavbar() {
         {user.id !== null ? (
           user.isAdmin ? (
             <>
+                                  <Nav.Link as={Link} to="/movies" className="text-white">
+                Movies
+              </Nav.Link>
               <Dropdown align="end">
                 <Dropdown.Toggle variant="link" id="profile-dropdown" className="text-white">
                   <FontAwesomeIcon icon={faUser} className="text-white" />
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
-                  <Dropdown.Item as={NavLink} to="/profile">Profile</Dropdown.Item>
                   <Dropdown.Item as={NavLink} to="/logout">Logout</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>

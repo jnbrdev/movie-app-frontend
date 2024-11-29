@@ -91,87 +91,89 @@ export default function MoviesView() {
   
 
   return (
-    <Container>
-      <Row className="mt-3">
-        {/* First Column: Placeholder Image */}
-        <Col sm={12} lg={4}>
-  <Card style={{ height: '600px', overflow: 'hidden' }}>
-    <Card.Img
-      variant="top"
-      src={imgUrl}
-      alt="Placeholder"
-      style={{ objectFit: 'cover', height: '100%' }}
-    />
-  </Card>
-</Col>
+    user && user.id ? (
+      <Container>
+        <Row className="mt-3">
+          {/* First Column: Placeholder Image */}
+          <Col sm={12} lg={4}>
+            <Card style={{ height: '600px', overflow: 'hidden' }}>
+              <Card.Img
+                variant="top"
+                src={imgUrl}
+                alt="Placeholder"
+                style={{ objectFit: 'cover', height: '100%' }}
+              />
+            </Card>
+          </Col>
 
-
-        {/* Second Column: Movie Data */}
-        <Col sm={12} lg={8}>
-          <Card>
-            <Card.Body>
-              <Card.Title>{title}</Card.Title>
-              <Card.Text>
-                <strong>Description:</strong> {description}
-              </Card.Text>
-              <Card.Text>
-                <strong>Genre:</strong> {genre}
-              </Card.Text>
-              <Card.Text>
-                <strong>Director:</strong> {director}
-              </Card.Text>
-              <Card.Text>
-                <strong>Year:</strong> {year}
-              </Card.Text>
-            </Card.Body>
-          </Card>
-
-          <Card className='my-3'>
-    <Card.Body>
-      <h5>Comments</h5>
-      {/* Textarea for new comment */}
-      {user.id !== null ? (
-        <>
-          <Form.Group className="mb-3">
-            <Form.Control
-              as="textarea"
-              rows={3}
-              placeholder="Write a comment..."
-              value={newComment}
-              onChange={(e) => setNewComment(e.target.value)}
-            />
-          </Form.Group>
-          <Button variant="primary" onClick={addComment}>
-            Add Comment
-          </Button>
-        </>
-      ) : null}
-
-      {/* Display existing comments */}
-      <div className="mt-3">
-        {comments && comments.length > 0 ? (
-          comments.map((comment, index) => (
-            <Card className="mb-2" key={comment._id || index}>
+          {/* Second Column: Movie Data */}
+          <Col sm={12} lg={8}>
+            <Card>
               <Card.Body>
-                <strong>Name: {comment.userId}</strong>
-                <p>{comment.comment}</p>
+                <Card.Title>{title}</Card.Title>
+                <Card.Text>
+                  <strong>Description:</strong> {description}
+                </Card.Text>
+                <Card.Text>
+                  <strong>Genre:</strong> {genre}
+                </Card.Text>
+                <Card.Text>
+                  <strong>Director:</strong> {director}
+                </Card.Text>
+                <Card.Text>
+                  <strong>Year:</strong> {year}
+                </Card.Text>
               </Card.Body>
             </Card>
-          ))
-        ) : (
-          <p>No comments yet.</p>
-        )}
-      </div>
-    </Card.Body>
-  </Card>
-        </Col>
 
-       {/* Third Column: Comments */}
-<Col className='my-4' sm={12} lg={12}>
-  
+            <Card className='my-3'>
+              <Card.Body>
+                <h5>Comments</h5>
+                {/* Textarea for new comment */}
+                {user && user.id ? (
+                  <>
+                    <Form.Group className="mb-3">
+                      <Form.Control
+                        as="textarea"
+                        rows={3}
+                        placeholder="Write a comment..."
+                        value={newComment}
+                        onChange={(e) => setNewComment(e.target.value)}
+                      />
+                    </Form.Group>
+                    <Button variant="primary" onClick={addComment}>
+                      Add Comment
+                    </Button>
+                  </>
+                ) : null}
 
-        </Col>
-      </Row>
-    </Container>
+                {/* Display existing comments */}
+                <div className="mt-3">
+                  {comments && comments.length > 0 ? (
+                    comments.map((comment, index) => (
+                      <Card className="mb-2" key={comment._id || index}>
+                        <Card.Body>
+                          <strong>Name: {comment.userId}</strong>
+                          <p>{comment.comment}</p>
+                        </Card.Body>
+                      </Card>
+                    ))
+                  ) : (
+                    <p>No comments yet.</p>
+                  )}
+                </div>
+              </Card.Body>
+            </Card>
+          </Col>
+
+          {/* Third Column: Comments */}
+          <Col className='my-4' sm={12} lg={12}>
+          </Col>
+        </Row>
+      </Container>
+    ) : (
+      <Navigate to="/login" />
+    )
   );
 }
+
